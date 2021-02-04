@@ -12,9 +12,9 @@ const submitHandler = (event) => {
     }
 
     Object.keys(errors).forEach((key) => {
-        const errorElements = document.querySelector(`#park_${key}.error`);
-        errorElements.innerHTML = errors[key];
-        errorElements.style.display = "block";
+        const errorElement = document.querySelector(`#park_${key} .error`);
+        errorElement.innerHTML = errors[key];
+        errorElement.style.display = "block";
     });
         // if there are no errors
     if (!Object.keys(errors).length) {
@@ -28,7 +28,7 @@ const submitHandler = (event) => {
         const content = `
         <h2>${formData.get("name")}</h2>
         <div class="location">${formData.get("location")}</div>
-        <div class="description>${formData.get("description")}</div>
+        <div class="description">${formData.get("description")}</div>
         <button class="rateBtn title="Add to Favorites">&#9734;</button>
         <div class="stats>
             <div class="established stat>
@@ -120,7 +120,9 @@ const main = () => {
 
     form.addEventListener("submit", submitHandler);
 
-    window.addEventListener("DOMContentLoaded", main);
+    
 
 };
+
+window.addEventListener("DOMContentLoaded", main);
 
